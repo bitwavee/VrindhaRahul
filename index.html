@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engagement Invitation</title>
+  <meta property="og:title" content="Engagement Invitation" />
+  <meta property="og:description" content="Vrindha & Rahul Engagement" />
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/REPO-NAME/invitation.png" />
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/REPO-NAME/" />
+  <meta name="theme-color" content="#d8c4f2" />
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, rgba(232, 210, 255, 0.7), transparent 35%),
+                  linear-gradient(180deg, #f7f0ff 0%, #eee5fb 100%);
+      color: #3d3052;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background-color: #f7f0ff;
+      overflow-x: hidden;
+    }
+
+    .invite-card {
+      width: min(100%, 600px);
+      background: rgba(255, 255, 255, 0.84);
+      border-radius: 24px;
+      box-shadow: 0 28px 80px rgba(100, 60, 140, 0.12);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      padding: 28px;
+      animation: appear 0.85s ease-out forwards;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    @keyframes appear {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .invite-content {
+      display: grid;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .image-link {
+      display: inline-block;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(110, 70, 180, 0.16);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.55), transparent 55%);
+    }
+
+    .image-link:hover {
+      transform: scale(1.02);
+      box-shadow: 0 24px 80px rgba(110, 70, 180, 0.22);
+    }
+
+    .invite-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 28px;
+    }
+
+    .info-block {
+      display: grid;
+      gap: 14px;
+      padding: 0 10px;
+    }
+
+    .location-text {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: #57436e;
+    }
+
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      margin: 0 auto;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #9a7ce3, #b88af6);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+      box-shadow: 0 12px 28px rgba(154, 124, 227, 0.28);
+    }
+
+    .action-button:hover,
+    .action-button:focus-visible {
+      background: linear-gradient(135deg, #8a6bdb, #a577ef);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(154, 124, 227, 0.32);
+    }
+
+    .glow-ring {
+      position: relative;
+    }
+
+    .glow-ring::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      border-radius: 34px;
+      background: radial-gradient(circle, rgba(171, 142, 255, 0.35), transparent 58%);
+      filter: blur(16px);
+      z-index: -1;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 18px;
+      }
+
+      .invite-card {
+        padding: 20px;
+      }
+
+      .action-button {
+        width: 100%;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="invite-card" role="main">
+    <section class="invite-content">
+      <a class="image-link glow-ring" href="https://maps.app.goo.gl/smJU9k3she486oHB7" target="_blank" rel="noopener noreferrer">
+        <img class="invite-image" src="images/invitation.png" alt="Engagement invitation" />
+      </a>
+      <div class="info-block">
+        <p class="location-text">📍 Rainbow Auditorium, Elavoor</p>
+        <a class="action-button" href="https://maps.app.goo.gl/smJU9k3she486oHB7" target="_blank" rel="noopener noreferrer">
+          Open in Google Maps
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

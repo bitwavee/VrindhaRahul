@@ -33,6 +33,19 @@
       background: radial-gradient(circle at top, rgba(232, 210, 255, 0.7), transparent 35%),
                   linear-gradient(180deg, #f7f0ff 0%, #eee5fb 100%);
       color: #3d3052;
+      --bg-blur: 14px;
+      --bg-saturation: 118%;
+      --bg-brightness: 0.94;
+      --bg-overlay-top: rgba(250, 245, 255, 0.5);
+      --bg-overlay-bottom: rgba(241, 233, 250, 0.62);
+      /* Button palette presets:
+        Option 1 (active): #ffb3a7 -> #7c6652
+        Option 2: #ffc0a8 -> #a5684f
+        Option 3: #ff9d8f -> #8d7b5a */
+      --btn-grad-start: #ffb3a7;
+      --btn-grad-end: #7c6652;
+      --btn-hover-start: #f5a497;
+      --btn-hover-end: #6e5a48;
     }
 
     * {
@@ -45,8 +58,28 @@
       display: grid;
       place-items: center;
       padding: 24px;
-      background-color: #f7f0ff;
+      position: relative;
+      isolation: isolate;
+      background: linear-gradient(180deg, rgba(247, 240, 255, 0.94), rgba(238, 229, 251, 0.96));
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("images/invitation.jpeg") center / cover no-repeat;
+      filter: blur(var(--bg-blur)) saturate(var(--bg-saturation)) brightness(var(--bg-brightness));
+      transform: scale(1.05);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg-overlay-top), var(--bg-overlay-bottom));
+      z-index: -1;
     }
 
     .invite-card {
@@ -93,8 +126,9 @@
       display: block;
       width: 100%;
       height: auto;
-      max-height: 620px;
-      object-fit: cover;
+      max-height: 85vh;
+      object-fit: contain;
+      object-position: center;
       border-radius: 15px;
     }
 
@@ -119,20 +153,20 @@
       margin: 0 auto;
       border: none;
       border-radius: 999px;
-      background: linear-gradient(135deg, #9a7ce3, #b88af6);
+      background: linear-gradient(135deg, var(--btn-grad-start), var(--btn-grad-end));
       color: #fff;
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 0.01em;
       transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
-      box-shadow: 0 12px 28px rgba(154, 124, 227, 0.28);
+      box-shadow: 0 12px 28px rgba(183, 150, 119, 0.3);
     }
 
     .action-button:hover,
     .action-button:focus-visible {
-      background: linear-gradient(135deg, #8a6bdb, #a577ef);
+      background: linear-gradient(135deg, var(--btn-hover-start), var(--btn-hover-end));
       transform: translateY(-1px);
-      box-shadow: 0 18px 36px rgba(154, 124, 227, 0.32);
+      box-shadow: 0 18px 36px rgba(124, 102, 82, 0.36);
     }
 
     .glow-ring {
@@ -158,10 +192,15 @@
         padding: 20px;
       }
 
+      .invite-image {
+        max-height: 78vh;
+      }
+
       .action-button {
         width: 100%;
         padding: 16px;
       }
+
     }
   </style>
 </head>
@@ -169,7 +208,7 @@
   <main class="invite-card" role="main">
     <section class="invite-content">
       <a class="image-link glow-ring" href="https://maps.app.goo.gl/smJU9k3she486oHB7" target="_blank" rel="noopener noreferrer">
-        <img class="invite-image" src="images/invitation.png" alt="Engagement invitation" />
+        <img class="invite-image" src="images/invitation.jpeg" alt="Engagement invitation" />
       </a>
       <div class="info-block">
         <p class="location-text">📍 Rainbow Auditorium, Elavoor Rd, Elavoor, Kerala 683572</p>
